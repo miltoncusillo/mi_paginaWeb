@@ -1,0 +1,54 @@
+/* cargar.css - Estilos del loading screen */
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.6s ease;
+}
+
+#loading-content {
+  text-align: center;
+  color: white;
+  font-family: 'Georgia', serif;
+}
+
+#loading-content h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+#loading-bar-container {
+  width: 300px;
+  height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#loading-bar {
+  width: 0%;
+  height: 100%;
+  background: #ffd700;
+  transition: width 0.2s ease;
+}
+
+#loading-text {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+#loading-screen.oculto {
+  opacity: 0;
+  pointer-events: none;
+}

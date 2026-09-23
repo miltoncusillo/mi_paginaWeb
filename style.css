@@ -1,0 +1,303 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #0a0a1a; /* mismo tono oscuro que tu escena nocturna */
+}
+#titulo-pagina {
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  color: rgb(5, 5, 5);
+  font-family: 'Georgia', serif; /* 👈 tipografía más elegante, va bien con temática de iglesia */
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 1px; /* 👈 separación sutil entre letras */
+  text-shadow: 
+    2px 2px 4px rgba(249, 248, 251, 0.8),
+    0 0 20px rgb(232, 239, 253); /* 👈 doble sombra: una oscura de contraste + un leve brillo */
+  z-index: 10;
+  margin: 0;
+}
+#subtitulo-pagina {
+  position: absolute;
+  top: 66px; /* 👈 justo debajo del título, ajustá según se vea */
+  left: 132px;
+  color: rgba(255, 255, 255, 0.75); /* un poco más tenue que el título */
+  font-family: 'Georgia', serif;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  margin: 0;
+}
+#menu-navegacion {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 10;
+  display: flex;
+  gap: 30px;
+}
+
+.menu-item {
+  color: white;
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  color: #0091ff; /* dorado, combina con las cruces de tu iglesia */
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+#linea-separadora {
+  position: absolute;
+  top: 90px; /* 👈 ajustá según la altura de tu título actual */
+  left: 30px;
+  right: 30px;
+  height: 1.5px;
+    background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.8) 0%,
+    rgba(255, 255, 255, 0.041) 50%,
+    rgba(255,255,255,0.8) 100%
+  );
+  z-index: 10;
+}
+
+.panel-ubicacion {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+
+.panel-ubicacion.visible {
+  opacity: 1;
+  pointer-events: auto; /* para poder interactuar con el mapa cuando está visible */
+}
+
+.panel-fotos {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
+  width: 320px;
+  max-height: 70vh; /* 👈 limita la altura del panel */
+  overflow-y: auto;  /* 👈 activa scroll vertical solo dentro del panel */
+}
+
+
+.panel-fotos, .panel-mapa {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
+  width: 320px;
+}
+
+.panel-fotos img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.panel-fotos h2, .panel-mapa h2 {
+  margin-top: 0;
+  font-size: 22px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.modal-foto {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-foto.abierto {
+  display: flex;
+}
+
+.modal-foto img {
+  max-width: 75%;
+  max-height: 75%;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+#cerrar-modal {
+  position: absolute;
+  top: 50px;
+  right: 280px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.panel-fotos img {
+  cursor: pointer; /* 👈 para que se note que son clickeables */
+  transition: transform 0.2s ease;
+}
+
+.panel-fotos img:hover {
+  transform: scale(1.03); /* leve efecto al pasar el mouse, indica interactividad */
+}
+
+.panel-mapa p {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+.mapa-container {
+  width: 100%;
+  overflow: hidden; /* 👈 esto corta cualquier desborde */
+  border-radius: 6px;
+}
+
+.mapa-container iframe {
+  width: 100% !important;  /* 👈 fuerza el ancho, ignorando el atributo del HTML */
+  height: 250px !important;
+  border: 0;
+  display: block;
+}
+
+.panel-historia {
+  position: absolute;
+  top: 150px;
+  width: 320px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
+  opacity: 0;
+  pointer-events: none; /* para que no interfiera con el mouse cuando está invisible */
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+
+.panel-historia.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#panel-iglesia {
+  left: 30px;
+}
+
+#panel-calacala {
+  right: 30px;
+}
+
+.panel-historia h2 {
+  margin-top: 0;
+  font-size: 22px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+
+#texto-clic {
+  position: absolute;
+  bottom: 15%; 
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(179, 176, 246);
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.panel-galeria {
+  position: absolute;
+  top: 130px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+
+.panel-galeria.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tarjeta-santo {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  padding: 15px;
+  width: 420px; /* 👈 más ancho para acomodar la escena grande */
+  color: white;
+  font-family: 'Georgia', serif;
+}
+
+.canvas-mini {
+  width: 100%;
+  height: 450px; /* 👈 escena más grande */
+  border-radius: 6px;
+  background: #111;
+  display: block;
+  box-sizing: border-box;
+}
+
+.info-santo {
+  margin-top: 15px;
+  max-height: 180px; /* 👈 limita la altura del texto */
+  overflow-y: auto;   /* 👈 scroll interno si el texto es largo */
+  padding-right: 8px;
+}
+
+.info-santo h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.info-santo p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Barra de scroll estilizada, igual que en panel-fotos */
+.info-santo::-webkit-scrollbar {
+  width: 6px;
+}
+.info-santo::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}

@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cargar.css">
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
+    
+  </head>
+  <body>
+
+    <div id="loading-screen">
+      <div id="loading-content">
+        <h2>Iglesia Cala-Cala</h2>
+        <div id="loading-bar-container">
+          <div id="loading-bar"></div>
+        </div>
+        <p id="loading-text">Cargando... 0%</p>
+      </div>
+    </div>
+    <div id="titulo-pagina">Iglesia Cala-Cala </div>  
+    <div id="subtitulo-pagina">Norte-Potosi-Bolivia </div> 
+    <nav id="menu-navegacion">
+      <a href="#" class="menu-item">Inicio</a>
+      <a href="#" class="menu-item">Proyecto</a>
+      <a href="#" class="menu-item">Galería</a>
+      <a href="#" class="menu-item">Ubicacion</a>
+    </nav>
+    <div id="linea-separadora"></div>
+    <div id="panel-iglesia" class="panel-historia">
+      <h2>Historia de la Iglesia</h2>
+      <p>La historia se remonta a finales del siglo XIX o principios del XX. Cuenta la tradición que dos pequeños
+        niños pastores de la comunidad de Cala Cala estaban cuidando sus ovejas en el cerro Calvario cuando estalló 
+        una terrible tormenta de granizo y relámpagos. Al calmarse el temporal, los niños descubrieron una cruz con 
+        la imagen de un Cristo crucificado.</p>
+    </div>
+
+        <div id="panel-calacala" class="panel-historia">
+      <h2>Historia de Cala-Cala</h2>
+      <p>Cala Cala es una comunidad rural ubicada en el municipio de Uncía,
+        dentro de la Provincia Rafael Bustillo en el norte del departamento de Potosí, Bolivia.
+      </p>
+      <h2>Cultura y Traiciones</h2>
+      <p> - Cala Cala es ampliamente conocida en el Norte de Potosí por ser la sede del tradicional
+         Festival de Qhonqotas y Pinkilladas (como su festival anual de musica autoctona), donde participan
+          agrupaciones y comunidades de Potosi, Cochabamba y Oruro para preservar los instrumentos nativos y 
+          danzas ancestrales.
+          <a href=https://www.facebook.com/reel/1827745757912366  style="color: #3229dd;">Ver mas</a>
+          <br> <br>
+          - Sus habitantes conservan costumbres agricolas, tejidos tradicionales y expresiones musicales 
+          comunitarias vinculadas al ciclo agrícola y festivo de los ayllus de la región.
+      </p>
+    </div>
+
+    <div id="panel-galeria" class="panel-galeria">
+  
+      <div class="tarjeta-santo">
+        <canvas id="canvas-santo1" class="canvas-mini"></canvas>
+        <div class="info-santo">
+          <h3>Tata San Antonio</h3>
+          <p>La comunidad de Cala Cala celebra con gran fervor la fiesta patronal en honor a San Antonio, 
+            combinando la fe católica con rituales y danzas ancestrales que reafirman la identidad de los habitantes de la región.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta-santo">
+        <canvas id="canvas-santo2" class="canvas-mini"></canvas>
+        <div class="info-santo">
+          <h3>Santo san benito</h3>
+          <p>una obra social icónica dedicada a brindar apoyo alimenticio, educación integral y carnetización
+             a niños, niñas y adolescentes con discapacidad en la región. El centro toma su nombre en honor a San Benito Menni, un santo conocido por su dedicación a los enfermos y desamparados.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta-santo">
+        <canvas id="canvas-santo3" class="canvas-mini"></canvas>
+        <div class="info-santo">
+          <h3>Santo Candelaria</h3>
+          <p>Con la fragmentación eclesiástica y civil en el Norte de Potosí, las comunidades originarias adoptaron
+            a la Virgen de la Candelaria como su santa patrona, adaptando su fiesta (el 2 de febrero) al calendario agrícola andino.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="panel-ubicacion" class="panel-ubicacion">
+      
+      <div class="panel-fotos">
+        <h2>Cala-Cala</h2>
+        <img src="imagenes/lugar1.jpg" alt="Vista de Cala-Cala">
+        <img src="imagenes/lugar2.jpg" alt="Paisaje de Cala-Cala">
+        <img src="imagenes/lugar3.jpg" alt="Paisaje de Cala-Cala">
+      </div>
+      <div id="modal-foto" class="modal-foto">
+        <span id="cerrar-modal">&times;</span>
+        <img id="modal-foto-img" src="">
+      </div>
+
+      <div class="panel-mapa">
+        <h2>Ubicación</h2>
+        <div class="mapa-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.1692778397264!2d-66.48473316424234!3d-18.527786114897594!2m3!1f0!2f0!3f0!3m2!
+                     1i1024!2i768!4f13.1!3m3!1m2!1s0x93fce50055109c57%3A0xdfd27ddf02caafbd!2sIglesia%20de%20Cala%20Cala!5e1!3m2!1ses-419!2sbo!4v1790044183564!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+        </div>
+        <p>Cala-Cala, Municipio de Uncía, Provincia Rafael Bustillo, Potosí, Bolivia</p>
+      </div>
+
+    </div>
+
+
+
+    <div id="texto-clic">Haga clic en la iglesia</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.108.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="cargar.js"></script>
+    <script src="galeria.js"></script>
+    <script src="script.js"></script>
+
+  </body>
+</html>
