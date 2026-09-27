@@ -38,7 +38,7 @@ function crearVisorSanto(canvasId, modeloUrl){
     var center = box.getCenter(new THREE.Vector3());
 
     var maxDim = Math.max(size.x, size.y, size.z);
-    var escala = 2 / maxDim; // ajustá el "2" si querés que se vea más grande/chico
+    var escala = 2.8 / maxDim; // ajustá el "2" si querés que se vea más grande/chico
     modeloActual.scale.set(escala, escala, escala);
 
     modeloActual.position.set(
@@ -53,30 +53,74 @@ function crearVisorSanto(canvasId, modeloUrl){
     console.log('Cargando ' + modeloUrl + ': ' + (xhr.loaded / xhr.total * 100).toFixed(0) + '%'); // 👈 agregar
   },
   function(error){
-    console.error('Error al cargar ' + modeloUrl + ':', error); // 👈 agregar - esto es clave
+    console.error('Error al cargar ' + modeloUrl + ':', error); // agregar - esto es clave
   }
 
 );
 
   // Guardamos esta mini-escena en la lista general
   visores.push({
+    canvas: canvas,
     escena: escena,
     camara: camara,
     renderer: renderer,
-    getModelo: function(){ return modeloActual; }
+    getModelo: function(){
+     return modeloActual; }
   });
 }
 
 // Loop de animación compartido para todos los mini-visores
 function animarGaleria(){
+
   requestAnimationFrame(animarGaleria);
 
   visores.forEach(function(v){
+
     var modelo = v.getModelo();
+
     if (modelo) {
-      modelo.rotation.y += 0.008; // rotación lenta y constante
+      modelo.rotation.y += 0.008;
     }
-    v.renderer.render(v.escena, v.camara);
+
+
+    // Tamaño real actual del canvas
+    var ancho = v.canvas.clientWidth;
+    var alto = v.canvas.clientHeight;
+
+
+    // Si cambió el tamaño de la pantalla
+    if (
+      ancho > 0 &&
+      alto > 0 &&
+      (
+        v.renderer.domElement.width !==
+        Math.floor(ancho * v.renderer.getPixelRatio()) ||
+
+        v.renderer.domElement.height !==
+        Math.floor(alto * v.renderer.getPixelRatio())
+      )
+    ) {
+
+      v.renderer.setSize(
+        ancho,
+        alto,
+        false
+      );
+
+
+      // Actualizamos la cámara
+      v.camara.aspect =
+        ancho / alto;
+
+      v.camara.updateProjectionMatrix();
+    }
+
+
+    v.renderer.render(
+      v.escena,
+      v.camara
+    );
+
   });
 }
 
