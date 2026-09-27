@@ -1,12 +1,12 @@
 var scene, camera, renderer, model;
-var keys = {}; // 👈 guarda qué teclas están presionadas
+var keys = {}; //  guarda qué teclas están presionadas
 
 function init(){   
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x000000);
 
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(0, 10.5, 5); // 👈 altura tipo "ojos de una persona" (~1.6) y un poco alejado
+  camera.position.set(0, 10.5, 5); //  altura tipo "ojos de una persona" (~1.6) y un poco alejado
 
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -44,7 +44,7 @@ function loadModel(){
   var loader = new THREE.GLTFLoader();
 
   loader.load(
-    'objetos/igle2.glb', // 👈 completá con el nombre real
+    'objetos/igle2.glb', // completá con el nombre real
     function(gltf){
       model = gltf.scene;
       scene.add(model);
@@ -68,14 +68,14 @@ function loadModel(){
   );
 }
     var santosInfo = [
-    { nombreObjeto: 'santo01', nombreMostrar: 'Santo Candelaria' }, // 👈 ajustá según los nombres reales
+    { nombreObjeto: 'santo01', nombreMostrar: 'Santo Candelaria' }, // ajustá según los nombres reales
     { nombreObjeto: 'santo02', nombreMostrar: 'Tata san Antonio' },
     { nombreObjeto: 'santo03', nombreMostrar: 'Santo San Benito' }
      ];
     var santoActualCercano = null;
 
     var infoBiblia = {
-      nombreObjeto: 'biblia', // 👈 completá con el nombre exacto de la consola
+      nombreObjeto: 'biblia', //  completá con el nombre exacto de la consola
       nombreMostrar: 'La Biblia',
       historia: 'La Biblia es como una pequeña biblioteca que contiene muchos libros escritos por diferentes autores. La palabra «Biblia» viene de la palabra griega biblia, que significa «libros». Pasaron 1100 años para que todos estos libros fueran escritos; y muchos años más, para que la lista de libros que ahora conocemos como la Biblia se reuniera en un solo libro.'
     };
@@ -83,7 +83,7 @@ function loadModel(){
 function revisarSantosCercanos(){
   if (!model) return;
 
-  var distanciaMinima = 8.5; // 👈 ajustá según qué tan cerca debe estar la cámara para activar el panel
+  var distanciaMinima = 8.5; //  ajustá según qué tan cerca debe estar la cámara para activar el panel
   var santoCercano = null;
 
   santosInfo.forEach(function(info){
