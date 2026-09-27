@@ -8,19 +8,19 @@ body {
   top: 18px;
   left: 30px;
   color: rgb(5, 5, 5);
-  font-family: 'Georgia', serif; /* 👈 tipografía más elegante, va bien con temática de iglesia */
+  font-family: 'Georgia', serif; /*tipografía más elegante, va bien con temática de iglesia */
   font-size: 42px;
   font-weight: bold;
-  letter-spacing: 1px; /* 👈 separación sutil entre letras */
+  letter-spacing: 1px; /* separación sutil entre letras */
   text-shadow: 
     2px 2px 4px rgba(249, 248, 251, 0.8),
-    0 0 20px rgb(232, 239, 253); /* 👈 doble sombra: una oscura de contraste + un leve brillo */
+    0 0 20px rgb(232, 239, 253); /*  doble sombra: una oscura de contraste + un leve brillo */
   z-index: 10;
   margin: 0;
 }
 #subtitulo-pagina {
   position: absolute;
-  top: 66px; /* 👈 justo debajo del título, ajustá según se vea */
+  top: 66px; /* justo debajo del título, ajustá según se vea */
   left: 132px;
   color: rgba(255, 255, 255, 0.75); /* un poco más tenue que el título */
   font-family: 'Georgia', serif;
@@ -56,7 +56,7 @@ body {
 }
 #linea-separadora {
   position: absolute;
-  top: 90px; /* 👈 ajustá según la altura de tu título actual */
+  top: 90px; /* ajustá según la altura de tu título actual */
   left: 30px;
   right: 30px;
   height: 1.5px;
@@ -95,8 +95,8 @@ body {
   border-radius: 8px;
   font-family: 'Georgia', serif;
   width: 320px;
-  max-height: 70vh; /* 👈 limita la altura del panel */
-  overflow-y: auto;  /* 👈 activa scroll vertical solo dentro del panel */
+  max-height: 70vh; /* limita la altura del panel */
+  overflow-y: auto;  /* activa scroll vertical solo dentro del panel */
 }
 
 
@@ -157,7 +157,7 @@ body {
 }
 
 .panel-fotos img {
-  cursor: pointer; /* 👈 para que se note que son clickeables */
+  cursor: pointer; /* para que se note que son clickeables */
   transition: transform 0.2s ease;
 }
 
@@ -173,12 +173,12 @@ body {
 
 .mapa-container {
   width: 100%;
-  overflow: hidden; /* 👈 esto corta cualquier desborde */
+  overflow: hidden; /*  esto corta cualquier desborde */
   border-radius: 6px;
 }
 
 .mapa-container iframe {
-  width: 100% !important;  /* 👈 fuerza el ancho, ignorando el atributo del HTML */
+  width: 100% !important;  /*  fuerza el ancho, ignorando el atributo del HTML */
   height: 250px !important;
   border: 0;
   display: block;
