@@ -36,11 +36,11 @@ function init(){
   directionalLight.position.set(5, 10, 7.5);
   scene.add(directionalLight);
   // Luz ambiental con tono azulado (simula luz de luna/noche)
-  var ambientLight = new THREE.AmbientLight(0x4444aa, 0.6); // 👈 azul tenue en vez de blanco puro
+  var ambientLight = new THREE.AmbientLight(0x4444aa, 0.6); //  azul tenue en vez de blanco puro
   scene.add(ambientLight);
 
   // Luz direccional más fría, simulando luz de luna
-  var directionalLight = new THREE.DirectionalLight(0xaaccff, 1.2); // 👈 blanco azulado
+  var directionalLight = new THREE.DirectionalLight(0xaaccff, 1.2); // blanco azulado
   directionalLight.position.set(5, 10, 7.5);
   scene.add(directionalLight);
   scene.fog = new THREE.Fog(0x1a1a3a, 20, 100); // color oscuro similar al cielo, distancia inicio/fin
@@ -68,7 +68,7 @@ function init(){
       panelGaleria.classList.add('visible');
     }
 
-    renderer.domElement.style.display = abriendo ? 'none' : 'block'; // 👈 esto se queda solo acá
+    renderer.domElement.style.display = abriendo ? 'none' : 'block'; //  esto se queda solo acá
     document.getElementById('texto-clic').style.display = abriendo ? 'none' : 'block';
     ubicacionAbierta = abriendo;
 
@@ -93,8 +93,8 @@ function init(){
       panelUbicacion.classList.add('visible');
     }
 
-    renderer.domElement.style.display = 'block'; // 👈 agregamos esto, para asegurar que la iglesia siempre se muestre acá
-    document.getElementById('texto-clic').style.display = 'block'; // 👈 también esto, por consistencia
+    renderer.domElement.style.display = 'block'; //  agregamos esto, para asegurar que la iglesia siempre se muestre acá
+    document.getElementById('texto-clic').style.display = 'block'; //  también esto, por consistencia
 
     ubicacionAbierta = abriendo;
   });
